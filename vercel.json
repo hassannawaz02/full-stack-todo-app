@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontent/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "frontent/out" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "frontent/$1"
+    }
+  ]
+}
