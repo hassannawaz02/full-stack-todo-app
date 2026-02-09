@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd D:/Hakathon 2 Phase 2)",
+      "Bash(PYTHONPATH=. python -m pytest backend/tests/unit/test_models.py -k test_user_creation -v)",
+      "Bash(npx next dev --port 3002)",
+      "Bash(ping -n 15 127.0.0.)",
+      "Bash(npm run dev)",
+      "Bash(dir src /s)",
+      "Bash(dir src)",
+      "Bash(dir srcapp)",
+      "Bash(npm install next@15.0.3 react@^18 react-dom@^18 eslint-config-next@15.0.3 @types/react@^18 @types/react-dom@^18 eslint@^8)",
+      "Bash(ping -n 30 127.0.0.)",
+      "Bash(ping -n 60 127.0.0.)",
+      "Bash(npm install next@15.0.3)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(curl -X POST http://localhost:8000/api/auth/signup -H \"Content-Type: application/json\" -d '{\n    \"\"email\"\": \"\"testuser@example.com\"\",\n    \"\"password\"\": \"\"testpass123\"\",\n    \"\"first_name\"\": \"\"Test\"\",\n    \"\"last_name\"\": \"\"User\"\"\n  }')",
+      "Bash(python -m uvicorn:*)",
+      "Bash(timeout 5 ping:*)",
+      "Bash(python -c:*)",
+      "Bash(python test_registration.py:*)",
+      "Bash(npm run build)",
+      "Bash(timeout:*)"
+    ]
+  }
+}
