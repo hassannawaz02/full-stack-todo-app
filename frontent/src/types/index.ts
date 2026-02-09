@@ -98,11 +98,17 @@ export interface ApiError extends Error {
 }
 
 // Helper type for axios errors
+export interface BackendErrorDetail {
+  msg?: string;
+  message?: string;
+  // Add other properties if known, or keep it flexible
+}
+
 export interface AxiosError {
   response?: {
     data?: {
       message?: string;
-      detail?: string;
+      detail?: string | BackendErrorDetail[];
     };
   };
   message: string;

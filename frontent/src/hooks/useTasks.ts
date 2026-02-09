@@ -3,7 +3,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { taskAPI } from '@/lib/api';
 import { useToast } from '@/context/ToastContext';
-import type { Task, AxiosError } from '@/types';
+import type { Task, AxiosError, BackendErrorDetail } from '@/types';
 
 interface TaskFilters {
   completed?: boolean | null;
@@ -51,7 +51,7 @@ export function useTasks(filters: TaskFilters = {}) {
 
         // Handle validation errors (array of error objects)
         if (Array.isArray(detail)) {
-          errorMessage = detail.map((err: any) => err.msg || err.message).join(', ');
+          errorMessage = detail.map((err: BackendErrorDetail) => err.msg || err.message).join(', ');
         }
         // Handle string error messages
         else if (typeof detail === 'string') {
@@ -79,7 +79,7 @@ export function useTasks(filters: TaskFilters = {}) {
         const detail = axiosError.response.data.detail;
 
         if (Array.isArray(detail)) {
-          errorMessage = detail.map((err: any) => err.msg || err.message).join(', ');
+          errorMessage = detail.map((err: BackendErrorDetail) => err.msg || err.message).join(', ');
         } else if (typeof detail === 'string') {
           errorMessage = detail;
         }
@@ -115,7 +115,7 @@ export function useTasks(filters: TaskFilters = {}) {
         const detail = axiosError.response.data.detail;
 
         if (Array.isArray(detail)) {
-          errorMessage = detail.map((err: any) => err.msg || err.message).join(', ');
+          errorMessage = detail.map((err: BackendErrorDetail) => err.msg || err.message).join(', ');
         } else if (typeof detail === 'string') {
           errorMessage = detail;
         }
@@ -156,7 +156,7 @@ export function useTasks(filters: TaskFilters = {}) {
         const detail = axiosError.response.data.detail;
 
         if (Array.isArray(detail)) {
-          errorMessage = detail.map((err: any) => err.msg || err.message).join(', ');
+          errorMessage = detail.map((err: BackendErrorDetail) => err.msg || err.message).join(', ');
         } else if (typeof detail === 'string') {
           errorMessage = detail;
         }

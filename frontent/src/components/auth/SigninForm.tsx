@@ -13,6 +13,8 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { AxiosError } from '@/types';
 
+import type { AxiosError, BackendErrorDetail } from '@/types';
+
 interface SigninFormProps {
   onSuccess?: () => void;
 }
@@ -52,7 +54,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ onSuccess }) => {
 
         // Handle validation errors (array of error objects)
         if (Array.isArray(detail)) {
-          errorMessage = detail.map((error: any) => error.msg || error.message).join(', ');
+          errorMessage = detail.map((error: BackendErrorDetail) => error.msg || error.message).join(', ');
         }
         // Handle string error messages
         else if (typeof detail === 'string') {
