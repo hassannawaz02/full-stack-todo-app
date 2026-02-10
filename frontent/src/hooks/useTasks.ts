@@ -94,7 +94,7 @@ export function useTasks(filters: TaskFilters = {}) {
     mutationFn: (id: string) => taskAPI.deleteTask(id),
     onMutate: async (id: string) => {
       await queryClient.cancelQueries({ queryKey: ['tasks'] });
-      const previousTasks = queryClient.getQueryData(['tasks', filters]);
+      const previousTasks = queryClient.getQueryData<Task[]>(['tasks', filters]);
       queryClient.setQueryData(['tasks', filters], (old: Task[] = []) =>
         old.filter((task) => task.id !== id)
       );
@@ -133,7 +133,7 @@ export function useTasks(filters: TaskFilters = {}) {
     mutationFn: (id: string) => taskAPI.toggleTaskCompletion(id),
     onMutate: async (id: string) => {
       await queryClient.cancelQueries({ queryKey: ['tasks'] });
-      const previousTasks = queryClient.getQueryData(['tasks', filters]);
+      const previousTasks = queryClient.getQueryData<Task[]>(['tasks', filters]);
       queryClient.setQueryData(['tasks', filters], (old: Task[] = []) =>
         old.map((task) =>
           task.id === id ? { ...task, completed: !task.completed } : task
