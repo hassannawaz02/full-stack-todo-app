@@ -1,5 +1,4 @@
 {
-  "buildCommand": "cd frontent && npm install && npm run build",
-  "outputDirectory": "frontent/out",
-  "installCommand": "npm install --prefix frontent"
+  "buildCommand": "cd frontent && npm run build",
+  "outputDirectory": "frontent/out"
 }
