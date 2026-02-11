@@ -1,16 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontent/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "frontent/out" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "frontent/$1"
-    }
-  ]
+  "buildCommand": "cd frontent && npm install && npm run build",
+  "outputDirectory": "frontent/out",
+  "installCommand": "npm install --prefix frontent"
 }
