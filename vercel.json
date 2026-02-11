@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd frontent && npm run build",
-  "outputDirectory": "frontent/out"
-}
